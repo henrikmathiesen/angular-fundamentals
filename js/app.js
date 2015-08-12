@@ -1,6 +1,6 @@
 /// <reference path="../typings/angularjs/angular.d.ts"/>
 (function(){
 	
-	angular.module('angFun', ['ui.bootstrap']);
+	angular.module('eventsApp', ['ngRoute', 'ui.bootstrap']);
 	
 })();

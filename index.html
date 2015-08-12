@@ -1,25 +1,47 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="eventsApp">
   
-  <head>
+  <head ng-controller="layoutController">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Angular Fundamentals</title>
-    <meta name="description" content="Angular Fundamentals">
+    <title>{{ valueFactory.getTitle() }}</title>
+    <meta name="description" content="{{ valueFactory.getTitle() }}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/slate/bootstrap.min.css">
     <link rel="stylesheet" href="./css/app.css">
   </head>
   
-  <body ng-app="angFun" ng-cloak>
-    <h1>Angular Fundamentals</h1>
-    <h2 ng-controller="helloWorldController">
-      {{message}}
-    </h2>
+  <body ng-cloak>
+    <div class="container">
+      <div class="row" ng-controller="layoutController">
+        <div class="col-md-12">
+          <ul class="nav nav-pills nav-justified">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+          </ul>
+          <h1 class="text-center">{{ valueFactory.getTitle() }}</h1>
+        </div>
+      </div>
+      <div class="row" ng-controller="eventController">
+        <div class="col-md-3">
+          <div>{{ event.name }}</div>
+          <div>{{ event.date }}</div>
+          <div>{{ event.time }}</div> 
+        </div>
+      </div>
+      
+    </div>
+    
+    
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
     <script src="./js/app.js"></script>
-    <script src="./js/controllers/helloWorldController.js"></script>
+    <script src="./js/services/valueFactory.js"></script>
+    <script src="./js/controllers/layoutController.js"></script>
+    <script src="./js/controllers/eventController.js"></script>
   </body>
 
 </html>
