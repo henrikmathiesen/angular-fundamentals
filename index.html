@@ -12,9 +12,12 @@
   
   <body ng-app="angFun" ng-cloak>
     <h1>Angular Fundamentals</h1>
-    <h2>{{ 1 + 1 }}</h2>
+    <h2 ng-controller="helloWorldController">
+      {{message}}
+    </h2>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
     <script src="./js/app.js"></script>
+    <script src="./js/controllers/helloWorldController.js"></script>
   </body>
 
 </html>
