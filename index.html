@@ -45,15 +45,21 @@
         </div>
         <div class="col-md-4">
           <address>
-              <div><strong>Address: </strong>{{ event.location.address }}</div>
-              <div><strong>City: </strong>{{ event.location.city }}, {{ event.location.province }}</div>
-            </address>
+            <div><strong>Address: </strong>{{ event.location.address }}</div>
+            <div><strong>City: </strong>{{ event.location.city }}, {{ event.location.province }}</div>
+          </address>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-7">
-          <h3>Sessions</h3>
+          <h3>
+            Sessions
+            <select ng-model="sortOrder">
+              <option value="name">Name</option>
+              <option value="-upVoteCount">Votes</option>
+            </select>
+          </h3>
           <div class="row" ng-repeat="session in event.sessions | orderBy:sortOrder">
             <div class="col-md-9 well">
               <h4>{{ session.name }}</h3>

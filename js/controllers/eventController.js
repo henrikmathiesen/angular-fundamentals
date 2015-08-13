@@ -19,19 +19,19 @@
 			image: 'https://angularjs.org/img/AngularJS-large.png',
 			sessions: [
 				{
-					name: 'Directive Masterclass',
-					creatorName: 'Bob Smith',
-					duration: '1 hour',
-					level: 'Advanced',
-					abstract: 'In this session you will learn the ins and outs of directives.',
-					upVoteCount: 0
-				},
-				{
 					name: 'Scope for fun and profit',
 					creatorName: 'John Doe',
 					duration: '30 min',
 					level: 'Introductory',
 					abstract: 'This session will take a closer look at scopes.',
+					upVoteCount: 3
+				},
+				{
+					name: 'Directive Masterclass',
+					creatorName: 'Bob Smith',
+					duration: '1 hour',
+					level: 'Advanced',
+					abstract: 'In this session you will learn the ins and outs of directives.',
 					upVoteCount: 0
 				},
 				{
