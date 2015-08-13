@@ -55,6 +55,8 @@
 				session.upVoteCount = 0;
 			}
 		};
+		
+		$scope.sortOrder = 'name'; // Can set to '-name' to invert order
 	};
 	
 	angular.module('eventsApp').controller('eventController', eventController);
