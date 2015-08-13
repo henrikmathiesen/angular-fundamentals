@@ -20,3 +20,11 @@
   top:-10px;
   left:4px;
 }
+
+
+
+/* HELPERS */
+
+.af-text-opac {
+  opacity: 0.5;
+}
