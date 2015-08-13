@@ -1,50 +1,78 @@
 <!doctype html>
 <html lang="en" ng-app="eventsApp">
-  
-  <head ng-controller="layoutController">
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ valueFactory.getTitle() }}</title>
-    <meta name="description" content="{{ valueFactory.getTitle() }}">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/slate/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/app.css">
-  </head>
-  
-  <body ng-cloak>
-    <div class="container">
-      
-      <div class="row" ng-controller="layoutController">
+
+<head ng-controller="layoutController">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ valueFactory.getTitle() }}</title>
+  <meta name="description" content="{{ valueFactory.getTitle() }}">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/slate/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+
+<body ng-cloak>
+  <div class="container">
+
+    <div class="row" ng-controller="layoutController">
+      <div class="col-md-12">
+        <ul class="nav nav-pills nav-justified">
+          <li role="presentation" class="active"><a href="#">Home</a></li>
+          <li role="presentation"><a href="#">Profile</a></li>
+          <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+        <h1 class="text-center">{{ valueFactory.getTitle() }}</h1>
+      </div>
+    </div>
+
+    <div ng-controller="eventController">
+      <div class="row">
         <div class="col-md-12">
-          <ul class="nav nav-pills nav-justified">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">Profile</a></li>
-            <li role="presentation"><a href="#">Messages</a></li>
-          </ul>
-          <h1 class="text-center">{{ valueFactory.getTitle() }}</h1>
+          <img ng-src="{{ event.image }}" alt="{{ event.name }}">
         </div>
       </div>
-      
-      <div ng-controller="eventController">
-        <div class="row">
-          <div class="col-md-12">
-            <h2>{{ event.name }}</h2>
-          </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 ng-bind="event.name"></h2>
+          <h5 ng-bind-html="snippet"></h5> <!-- ng-bind-html-unsafe is deprecated, use $sce service instead to get style='' -->
         </div>
-        <div class="row">
-          <div class="col-md-3">
-            <div><strong>Date: </strong>{{ event.date }}</div>
-            <div><strong>Time: </strong>{{ event.time }}</div>
-          </div>
-          <div class="col-md-4">
-            <address>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div><strong>Date: </strong>{{ event.date }}</div>
+          <div><strong>Time: </strong>{{ event.time }}</div>
+        </div>
+        <div class="col-md-4">
+          <address>
               <div><strong>Address: </strong>{{ event.location.address }}</div>
               <div><strong>City: </strong>{{ event.location.city }}, {{ event.location.province }}</div>
-            </address>          
-          </div>
+            </address>
         </div>
       </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-7">
+          <h3>Sessions</h3>
+          <div class="row" ng-repeat="session in event.sessions">
+            <div class="col-md-9 well">
+              <h4>{{ session.name }}</h3>
+              <h5>{{ session.creatorName }}</h5>
+              <p>
+                Duration: {{ session.duration }} <br>
+                Level: {{ session.level }}
+              </p>
+              <p>{{ session.abstract }}</p>
+            </div>
+            <div class="col-md-3 well af-voting-widget">
+              <h4 ng-click="upVoteSession(session);"><span class="glyphicon glyphicon-thumbs-up text-success"></span> <span>Upvote</span></h4>
+              <h4 ng-click="downVoteSession(session);"><span class="glyphicon glyphicon-thumbs-down text-danger"></span> <span>Downvote</span></h4>
+              <h4 class="text-center">{{ session.upVoteCount }}</h4>
+            </div>
+          </div>
+         </div>
+       </div>
+     </div>
       
       
       
@@ -53,6 +81,7 @@
     
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-sanitize.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/services/valueFactory.js"></script>

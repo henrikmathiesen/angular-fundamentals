@@ -2,6 +2,21 @@
   display: none !important;
 }
 
-/*div[ng-controller='eventController'] h2 {
-  margin: 0;
-}*/
+.af-voting-widget h4 {
+  cursor:pointer;
+}
+
+.af-voting-widget h4:last-child {
+  cursor: default;
+}
+
+.af-voting-widget .glyphicon-thumbs-up,
+.af-voting-widget .glyphicon-thumbs-down {
+  font-size: 38px;
+}
+
+.af-voting-widget h4 span:last-child {
+  position: relative;
+  top:-10px;
+  left:4px;
+}
