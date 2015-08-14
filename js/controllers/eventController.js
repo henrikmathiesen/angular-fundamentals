@@ -24,7 +24,8 @@
 					duration: '30 min',
 					level: 'Introductory',
 					abstract: 'This session will take a closer look at scopes.',
-					upVoteCount: 3
+					upVoteCount: 3,
+					id:0
 				},
 				{
 					name: 'Directive Masterclass',
@@ -32,7 +33,8 @@
 					duration: '1 hour',
 					level: 'Advanced',
 					abstract: 'In this session you will learn the ins and outs of directives.',
-					upVoteCount: 0
+					upVoteCount: 0,
+					id:1
 				},
 				{
 					name: 'Well behaved Controllers',
@@ -40,7 +42,8 @@
 					duration: '2 hour',
 					level: 'Intermediate',
 					abstract: 'Learn how to craft and use controllers.',
-					upVoteCount: 0
+					upVoteCount: 0,
+					id:2
 				}
 			]
 		};
@@ -57,6 +60,7 @@
 		};
 		
 		$scope.sortOrder = 'name'; // Can set to '-name' to invert order
+		$scope.filterByLevel = '';
 	};
 	
 	angular.module('eventsApp').controller('eventController', eventController);

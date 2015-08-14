@@ -6,7 +6,8 @@
   cursor:pointer;
 }
 
-.af-voting-widget h4:last-child {
+.af-voting-widget h4:last-child,
+.af-voting-widget h4.af-text-opac {
   cursor: default;
 }
 
