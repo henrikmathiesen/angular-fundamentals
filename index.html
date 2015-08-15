@@ -56,12 +56,19 @@
           <h3>
             Sessions
             <select ng-model="sortOrder">
-              <option selected value="">-- Sort by --</option>
               <option value="name">Name</option>
               <option value="-upVoteCount">Votes</option>
             </select>
-            <select ng-model="filterByLevel" ng-options="session.level for session in event.sessions track by session.level"><!-- session.id -->
+            <!--
+              This 'Show all' sets model to null, and is not compatible with filter
+            <select ng-model="filterByLevel" 
+                    ng-options="session.level for session in event.sessions track by session.level"> || session.id
               <option value="">-- Show All --</option>
+            </select>
+            -->
+            <select ng-model="filterByLevel.level"> <!-- Filter by the word in the 'level' property -->
+              <option value="">-- Show all --</option>
+              <option value="{{ session.level }}" ng-repeat="session in event.sessions">{{ session.level }}</option>
             </select>
           </h3>
           <div class="row" ng-repeat="session in event.sessions | orderBy:sortOrder | filter: filterByLevel">

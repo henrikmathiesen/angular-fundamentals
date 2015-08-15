@@ -37,7 +37,7 @@
 					id:1
 				},
 				{
-					name: 'Well behaved Controllers',
+					name: 'Well behaved Controllers Advanced',
 					creatorName: 'Jane Doe',
 					duration: '2 hour',
 					level: 'Intermediate',
