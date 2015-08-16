@@ -76,10 +76,10 @@
               <h4>{{ session.name }}</h3>
               <h5>{{ session.creatorName }}</h5>
               <p>
-                Duration: {{ session.duration }} <br>
+                Duration: {{ session.duration | durationFilter }} <br>
                 Level: {{ session.level }}
               </p>
-              <p>{{ session.abstract }}</p>
+              <p>{{ session.abstract | truncateFilter:50 }}</p>
             </div>
             <div class="col-md-3 well af-voting-widget">
               <h4 ng-click="upVoteSession(session);"><span class="glyphicon glyphicon-thumbs-up text-success"></span> <span>Upvote</span></h4>
@@ -102,6 +102,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/services/valueFactory.js"></script>
+    <script src="./js/filters/truncateFilter.js"></script>
+    <script src="./js/filters/durationFilter.js"></script>
     <script src="./js/controllers/layoutController.js"></script>
     <script src="./js/controllers/eventController.js"></script>
   </body>
