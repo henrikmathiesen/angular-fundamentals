@@ -6,7 +6,6 @@
 		valueFactory.setTitle('New Event');
 		
 		$scope.saveEvent = function(){
-			console.log($scope);
 			if($scope.newEventForm.$valid) {
 				console.log("SAVING EVENT");
 			}
