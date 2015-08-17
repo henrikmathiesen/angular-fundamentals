@@ -22,6 +22,14 @@
   left:4px;
 }
 
+.af-form-group-multiple-inputs input {
+  margin-bottom:10px;
+}
+
+.af-button-40 {
+  width:40%;
+}
+
 
 
 /* HELPERS */

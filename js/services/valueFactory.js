@@ -11,7 +11,7 @@
 		};
 		
 		valueFactory.setTitle = function(title){
-			_title = title;
+			_title = title + ' - The Events App';
 		};
 		
 		

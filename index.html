@@ -18,9 +18,8 @@
     <div class="row" ng-controller="layoutController">
       <div class="col-md-12">
         <ul class="nav nav-pills nav-justified">
-          <li role="presentation" class="active"><a href="#">Home</a></li>
-          <li role="presentation"><a href="#">Profile</a></li>
-          <li role="presentation"><a href="#">Messages</a></li>
+          <li role="presentation" class="active"><a href="/">Home</a></li>
+          <li role="presentation"><a href="./newevent.html">Create Event</a></li>
         </ul>
         <h1 class="text-center">{{ valueFactory.getTitle() }}</h1>
       </div>
@@ -106,6 +105,7 @@
     <script src="./js/filters/durationFilter.js"></script>
     <script src="./js/controllers/layoutController.js"></script>
     <script src="./js/controllers/eventController.js"></script>
+    <script src="./js/controllers/editEventController.js"></script>
   </body>
 
 </html>
