@@ -4,6 +4,10 @@
 	
 	var editEventController = function($scope, valueFactory){
 		valueFactory.setTitle('New Event');
+		
+		$scope.saveEvent = function(event){
+			console.log(event);
+		};
 	};
 	
 	angular.module('eventsApp').controller('editEventController', editEventController);

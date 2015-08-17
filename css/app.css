@@ -30,6 +30,11 @@
   width:40%;
 }
 
+.af-column-image {
+  display: block;
+  max-width: 100%;
+}
+
 
 
 /* HELPERS */

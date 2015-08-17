@@ -28,7 +28,7 @@
     <div ng-controller="editEventController">
       <div class="row">
         <div class="col-md-7">
-          <form>
+          <form ng-submit="saveEvent(event);">
             <fieldset>
               <div class="form-group">
                 <label for="eventName">Event name</label>
@@ -59,7 +59,7 @@
           </form>
         </div>
         <div class="col-md-5">
-          <img ng-show="event.image" ng-src="event.image" alt="{{ event.name }}">
+          <img ng-show="event.image" ng-src="{{event.image}}" alt="{{ event.name }}" class="af-column-image">
         </div>
       </div>
     </div>
