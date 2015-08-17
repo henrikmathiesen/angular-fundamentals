@@ -5,8 +5,11 @@
 	var editEventController = function($scope, valueFactory){
 		valueFactory.setTitle('New Event');
 		
-		$scope.saveEvent = function(event){
-			console.log(event);
+		$scope.saveEvent = function(){
+			console.log($scope);
+			if($scope.newEventForm.$valid) {
+				console.log("SAVING EVENT");
+			}
 		};
 	};
 	
