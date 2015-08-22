@@ -1,0 +1,42 @@
+ANGULAR BUILT IN SERVICES
+
+
+Often used
+
+- $scope
+- $rootScope
+
+- $window
+- $document
+- $rootElement
+
+- $http
+
+- $location
+- $route
+- $routeParams
+- $anchorScroll
+
+- $timeout
+
+- $sce
+- $compile
+- $parse
+
+- $filter
+
+- $locale
+
+- $resource
+
+- $exceptionHandler
+
+- $cookieStore  
+
+- $interpolate
+
+
+
+- $log
+- $httpBackend
+- $controller

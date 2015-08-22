@@ -2,7 +2,7 @@
 
 (function(){
 	
-	var eventController = function($scope, $sce, $filter, valueFactory, eventDataFactory){
+	var eventController = function($scope, $sce, $filter, valueFactory, eventDataFactory, testFactory){
 		$scope.valueFactory = valueFactory;
 		
 		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");
@@ -28,6 +28,6 @@
 	};
 	
 	angular.module('eventsApp').controller('eventController', eventController);
-	eventController.$inject = ['$scope', '$sce', '$filter', 'valueFactory', 'eventDataFactory'];
+	eventController.$inject = ['$scope', '$sce', '$filter', 'valueFactory', 'eventDataFactory', 'testFactory'];
 	
 })();
