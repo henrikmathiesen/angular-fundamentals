@@ -2,13 +2,13 @@
 
 (function(){
 	
-	var editProfileController = function($scope){
-		
+	var editProfileController = function($scope, valueFactory){
+		valueFactory.setTitle('Your Profile');
 		$scope.user = {};
 		
 	};
 	
 	angular.module('eventsApp').controller('editProfileController', editProfileController);
-	editProfileController.$inject = ['$scope'];
+	editProfileController.$inject = ['$scope', 'valueFactory'];
 	
 })();

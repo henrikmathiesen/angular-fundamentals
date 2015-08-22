@@ -14,8 +14,20 @@
 
 <body ng-cloak>
 
-	<div class="container-fluid" ng-controller="editProfileController">
-		<form name="profileForm">
+	<div class="container">
+
+		<div class="row" ng-controller="layoutController">
+			<div class="col-md-12">
+				<ul class="nav nav-pills nav-justified">
+					<li role="presentation"><a href="/">Home</a></li>
+					<li role="presentation"><a href="./newevent.html">Create Event</a></li>
+					<li role="presentation" class="active"><a href="./editprofile.html">Your Profile</a></li>
+				</ul>
+				<h1 class="text-center">{{ valueFactory.getTitle() }}</h1>
+			</div>
+		</div>
+
+		<form name="profileForm" ng-controller="editProfileController">
 			<div class="row">
 				<div class="col-md-3">
 					<img src="/img/profile.jpg" />
@@ -27,7 +39,8 @@
 								<label for="userName">User Name:</label>
 							</div>
 							<div>
-								<input focus id="userName" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" type="text" placeholder="Username" ng-model="user.userName"/>
+								<input focus id="userName" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" type="text" placeholder="Username" ng-model="user.userName"
+								/>
 							</div>
 						</div>
 						<div>
