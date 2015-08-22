@@ -34,7 +34,8 @@
       <div class="row">
         <div class="col-md-12">
           <h2 ng-bind="event.name | uppercase"></h2>
-          <h5 ng-bind-html="snippet"></h5> <!-- ng-bind-html-unsafe is deprecated, use $sce service instead to get style='' -->
+          <h5 ng-bind-html="snippet"></h5>
+          <!-- ng-bind-html-unsafe is deprecated, use $sce service instead to get style='' -->
         </div>
       </div>
       <div class="row">
@@ -86,26 +87,27 @@
               <h4 class="text-center">{{ session.upVoteCount }}</h4>
             </div>
           </div>
-         </div>
-       </div>
-     </div>
-      
+        </div>
+      </div>
     </div>
-    
-    
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-sanitize.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
-    <script src="./js/app.js"></script>
-    <script src="./js/services/valueFactory.js"></script>
-    <script src="./js/services/eventDataFactory.js"></script>
-    <script src="./js/services/testFactory.js"></script>
-    <script src="./js/filters/truncateFilter.js"></script>
-    <script src="./js/filters/durationFilter.js"></script>
-    <script src="./js/controllers/layoutController.js"></script>
-    <script src="./js/controllers/eventController.js"></script>
-    <script src="./js/controllers/editEventController.js"></script>
-  </body>
+
+  </div>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-sanitize.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/services/valueFactory.js"></script>
+  <script src="./js/services/eventDataFactory.js"></script>
+  <script src="./js/services/testFactory.js"></script>
+  <script src="./js/filters/truncateFilter.js"></script>
+  <script src="./js/filters/durationFilter.js"></script>
+  <script src="./js/controllers/layoutController.js"></script>
+  <script src="./js/controllers/eventController.js"></script>
+  <script src="./js/controllers/editEventController.js"></script>
+  <script src="./js/controllers/editProfileController.js"></script>
+</body>
 
 </html>
