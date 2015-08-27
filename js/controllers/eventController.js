@@ -7,7 +7,15 @@
 		
 		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");
 
-		$scope.event = eventDataFactory.event;
+		eventDataFactory.event()
+						.then(function(response){
+							$scope.event = response.data.event;
+						}, function(){
+							console.log("ERROR GETTING EVENT");
+						})
+						.finally(function(){
+							console.log("ALWAYS");
+						});
 		
 		$scope.upVoteSession = function(session){
 			session.upVoteCount += 1;
