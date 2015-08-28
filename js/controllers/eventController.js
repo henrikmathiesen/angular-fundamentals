@@ -7,9 +7,9 @@
 		
 		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");
 
-		eventDataFactory.event()
+		eventDataFactory.getEvents()
 						.then(function(response){
-							$scope.event = response.data.event;
+							$scope.event = response.data[0];
 						}, function(){
 							console.log("ERROR GETTING EVENT");
 						})

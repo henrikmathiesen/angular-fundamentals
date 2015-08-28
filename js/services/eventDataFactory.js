@@ -16,9 +16,16 @@
 		// 			callback('ALWAYS');
 		// 		});
 		// };
+		//
+		// Can also use $resource, not async, but can call $promise.then(), is in another angular module (maybe look it up later)
+		// http://stackoverflow.com/questions/13181406/angularjs-http-and-resource
 		
-		eventDataFactory.event = function(){
+		eventDataFactory.getEvents = function(){
 			return $http.get(valueFactory.apiUrl + '/getevents');
+		};
+		
+		eventDataFactory.getEvent = function(id){
+			return $http.get(valueFactory.apiUrl + '/getevent/' + id);
 		};
 
 		return eventDataFactory;
