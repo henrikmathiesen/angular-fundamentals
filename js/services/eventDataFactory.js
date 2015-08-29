@@ -25,7 +25,11 @@
 		};
 		
 		eventDataFactory.getEvent = function(id){
-			return $http.get(valueFactory.apiUrl + '/getevent/' + id);
+			return $http.get(valueFactory.apiUrl + '/getevent?id=' + id);
+		};
+		
+		eventDataFactory.postEvent = function(event){
+			return $http.post(valueFactory.apiUrl + '/postevent', event);
 		};
 
 		return eventDataFactory;
