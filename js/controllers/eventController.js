@@ -7,7 +7,7 @@
 		
 		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");
 
-		eventDataFactory.getEvent(1)
+		eventDataFactory.getEvent(4)
 						.then(function(response){
 							$scope.event = response.data;
 						}, function(){
@@ -33,6 +33,13 @@
 		
 		var testStringToFilter = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id enim convallis, pharetra est vitae, malesuada massa. Curabitur suscipit, leo ac volutpat ornare, enim nunc pulvinar turpis, ultricies elementum sapien eros et dolor. Etiam quis arcu nec justo aliquet finibus. Sed quis orci sit amet sem posuere';
 		console.log($filter('truncateFilter')(testStringToFilter, 50));
+		
+		$scope.listAllEvents = function(){
+			eventDataFactory.getEvents()
+							.then(function(response){
+								console.log(response.data);
+							});
+		};
 	};
 	
 	angular.module('eventsApp').controller('eventController', eventController);

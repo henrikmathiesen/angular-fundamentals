@@ -2,17 +2,19 @@
 
 (function(){
 	
-	var editEventController = function($scope, valueFactory){
+	var editEventController = function($scope, $filter, valueFactory, eventDataFactory){
 		valueFactory.setTitle('New Event');
+		
+		$scope.event = {};
 		
 		$scope.saveEvent = function(){
 			if($scope.newEventForm.$valid) {
-				console.log("SAVING EVENT");
+				eventDataFactory.postEvent($scope.event);
 			}
 		};
 	};
 	
 	angular.module('eventsApp').controller('editEventController', editEventController);
-	editEventController.$inject = ['$scope', 'valueFactory'];
+	editEventController.$inject = ['$scope', '$filter', 'valueFactory', 'eventDataFactory'];
 	
 })();

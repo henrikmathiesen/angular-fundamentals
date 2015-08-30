@@ -27,6 +27,11 @@
     </div>
 
     <div ng-controller="eventController">
+      <div>
+        <hr>
+        <span ng-click="listAllEvents()">Log all events (debug)</span>
+        <hr>
+      </div>
       <div class="row">
         <div class="col-md-12">
           <img ng-src="{{ event.image }}" alt="{{ event.name }}">
@@ -41,8 +46,8 @@
       </div>
       <div class="row">
         <div class="col-md-3">
-          <div><strong>Date: </strong>{{ event.date }}</div>
-          <div><strong>Time: </strong>{{ event.time }}</div>
+          <div><strong>Date: </strong>{{ event.date | date  }}</div>
+          <div><strong>Time: </strong>{{ event.time | date: 'HH:mm' }}</div>
         </div>
         <div class="col-md-4">
           <address>
