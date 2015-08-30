@@ -3,8 +3,6 @@
 (function(){
 	
 	var eventController = function($scope, $sce, $filter, $anchorScroll, $location, valueFactory, eventDataFactory, testFactory){
-		$scope.valueFactory = valueFactory;
-		
 		$scope.event = {};
 		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");
 
