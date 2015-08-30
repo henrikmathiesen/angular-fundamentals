@@ -40,6 +40,7 @@
       <div class="row">
         <div class="col-md-12">
           <h2 ng-bind="event.name | uppercase"></h2>
+          <h3 ng-show="event.sessions.length > 0"><span ng-click="scrollToSessions()">Scroll to sessions</span></h3>
           <h5 ng-bind-html="snippet"></h5>
           <!-- ng-bind-html-unsafe is deprecated, use $sce service instead to get style='' -->
         </div>
@@ -77,7 +78,7 @@
               <option value="{{ session.level }}" ng-repeat="session in event.sessions">{{ session.level }}</option>
             </select>
           </h3>
-          <div class="row" ng-repeat="session in event.sessions | orderBy:sortOrder | filter: filterByLevel">
+          <div class="row" ng-repeat="session in event.sessions | orderBy:sortOrder | filter: filterByLevel" id="session{{ session.id }}">
             <div class="col-md-9 well">
               <h4>{{ session.name }}</h3>
               <h5>{{ session.creatorName }}</h5>
