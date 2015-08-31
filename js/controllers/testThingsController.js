@@ -86,7 +86,20 @@
 		
 		
 		// Testing Angulars $parse
-		var fn = 'console.log(1 + 1)';
+		
+		var fn = $parse('1 + 1');
+		console.log(fn());
+		
+		// Can give $parse different contexts
+		var getter = $parse('game.name');
+		var context01 = { game: { name: 'Resident Evil 1' } };
+		var context02 = { game: { name: 'Resident Evil 4' } };
+		console.log(getter(context01));
+		console.log(getter(context02));
+		
+		// Can also change value of a property in a context
+		getter.assign(context02, 'Resident Evil 2');
+		console.log(context02.game.name);
 	};
 	
 	
