@@ -41,7 +41,7 @@
 	// ==============================================================================
 	
 	
-	var testThingsController = function($scope, $cacheFactory, $compile, valueFactory){
+	var testThingsController = function($scope, $cacheFactory, $compile, $parse, valueFactory){
 		valueFactory.setTitle('Test Things');
 		
 		
@@ -83,11 +83,15 @@
 		// If we compile the markup, the bindings will work
 		cmarkup = $compile(cmarkup)($scope);
 		angular.element('div[data-compiled]').html(cmarkup);
+		
+		
+		// Testing Angulars $parse
+		var fn = 'console.log(1 + 1)';
 	};
 	
 	
 	
 	angular.module('eventsApp').controller('testThingsController', testThingsController);
-	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', 'valueFactory'];
+	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', '$parse', 'valueFactory'];
 	
 })();
