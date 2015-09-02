@@ -41,7 +41,7 @@
 	// ==============================================================================
 	
 	
-	var testThingsController = function($scope, $cacheFactory, $compile, $parse, valueFactory){
+	var testThingsController = function($scope, $cacheFactory, $compile, $parse, $locale, $timeout, valueFactory){
 		valueFactory.setTitle('Test Things');
 		
 		
@@ -100,11 +100,33 @@
 		// Can also change value of a property in a context
 		getter.assign(context02, 'Resident Evil 2');
 		console.log(context02.game.name);
+		
+		
+		// Testing Angulars $locale (need to referense its scripts, but does not need module dependencie [])
+		// It also seems to be enough to just referense the locale_sv-se script to get the swedish words
+		// for this semi custom filter: {{ myDate | date: 'fullDate' }} 
+		$scope.myDate = Date.now();
+		$scope.myDateFormat = $locale.DATETIME_FORMATS.fullDate;		// This does not seem to be nessecary
+		
+		// Testing Currency
+		// This will display the currency symbol matching the locale file
+		// {{ ammount | currency }}
+		// To always display a specific currency symbol no mather locale file, use this filter
+		// {{ ammount | currency: 'kr' }}
+		$scope.ammount = 100;
+		
+		
+		// Testing Angulars $timeout (storing their promise in a var, so we can cancel them)
+		var vanillaStPromise = setTimeout(function(){ $scope.vanillaTimeoutName = 'John' }, 8000);		// This actually works ...
+		var angStPromise = $timeout(function(){ $scope.angTimeoutName = 'Jane' }, 8000);				// Ofcourse this does too
+		$scope.cancelvanillaTimeout = function(){ clearTimeout(vanillaStPromise); };
+		$scope.cancelangTimeout = function(){  };
+		
 	};
 	
 	
 	
 	angular.module('eventsApp').controller('testThingsController', testThingsController);
-	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', '$parse', 'valueFactory'];
+	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', '$parse', '$locale', '$timeout', 'valueFactory'];
 	
 })();
