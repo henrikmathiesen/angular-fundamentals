@@ -38,6 +38,7 @@
 		
 		var testStringToFilter = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id enim convallis, pharetra est vitae, malesuada massa. Curabitur suscipit, leo ac volutpat ornare, enim nunc pulvinar turpis, ultricies elementum sapien eros et dolor. Etiam quis arcu nec justo aliquet finibus. Sed quis orci sit amet sem posuere';
 		console.log($filter('truncateFilter')(testStringToFilter, 50));
+		// truncateFilter(testStringToFilter, 50) , can do it like that, if included that as a service, but I think cant name it xxFilter, use $filter instead
 		
 		// DEBUG
 		$scope.listAllEvents = function(){
@@ -46,6 +47,13 @@
 								console.log(response.data);
 							});
 		};
+		
+		
+		// Using an Angular filter from code
+		var names = ['Bertil', 'Adam', 'David', 'Ceasar'];
+		var orderedNames = $filter('orderBy')(names, '-');
+		console.log(orderedNames);
+		
 	};
 	
 	angular.module('eventsApp').controller('eventController', eventController);

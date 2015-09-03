@@ -116,12 +116,20 @@
 		$scope.ammount = 100;
 		
 		
-		// Testing Angulars $timeout (storing their promise in a var, so we can cancel them)
-		var vanillaStPromise = setTimeout(function(){ $scope.vanillaTimeoutName = 'John' }, 8000);		// This actually works ...
-		var angStPromise = $timeout(function(){ $scope.angTimeoutName = 'Jane' }, 8000);				// Ofcourse this does too
-		$scope.cancelvanillaTimeout = function(){ clearTimeout(vanillaStPromise); };
-		$scope.cancelangTimeout = function(){  };
+		// Testing Angulars $timeout (and compare to vanilla) (storing their promise in a var, so we can cancel them)
 		
+		var vanillaStPromise = setTimeout(function(){ $scope.vanillaTimeoutName = 'John' }, 6000);		// This actually works ...
+		var angStPromise = $timeout(function(){ $scope.angTimeoutName = 'Jane' }, 6000);				// Ofcourse this does too
+		
+		$scope.cancelvanillaTimeout = function(){ clearTimeout(vanillaStPromise); };					// Both of these works as well
+		$scope.cancelangTimeout = function(){ $timeout.cancel(angStPromise) };							// But, do it The Angular Way
+		
+		
+		// Testing Angulars $exceptionHandler
+		// Dont know ...
+		//throw { message: 'My Error Message' };
+		//$exceptionHandler
+		// https://docs.angularjs.org/api/ng/service/$exceptionHandler
 	};
 	
 	
