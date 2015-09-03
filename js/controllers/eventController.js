@@ -1,4 +1,31 @@
 /// <reference path="../../typings/angularjs/angular.d.ts"/>
+/// <reference path="../../typings/jquery/jquery.d.ts"/>
+
+// (function($){
+// 	$.ajax({
+// 		method: 'GET',
+// 		url: 'http://localhost:1338/getevent?id=0'
+// 	})
+// 	.then(function(response){
+// 		console.log(response);
+// 	}, function(){
+// 		console.log('error');
+// 	})
+// 	.always(function(){
+// 		console.log('always!');
+// 	});
+// })(jQuery);
+
+
+
+/*
+	Interesting
+	- jQuery Ajax API does not use last .then() as Always/Finally (logic does not go there on error)
+	- jQuery Ajax API needs an .always()
+	- Angular on the other hand uses last .then() as Always/Finally
+*/
+
+
 
 (function(){
 	
@@ -9,10 +36,11 @@
 		eventDataFactory.getEvent(0)
 						.then(function(response){
 							$scope.event = response.data;
+							console.log('data');
 						}, function(){
 							console.log("ERROR GETTING EVENT");
 						})
-						.finally(function(){
+						 .finally(function(){
 							console.log("ALWAYS");
 						});
 		
