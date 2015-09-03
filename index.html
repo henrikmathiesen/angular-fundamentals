@@ -33,6 +33,12 @@
         <span ng-click="listAllEvents()">Log all events (debug)</span>
         <hr>
       </div>
+      <div ng-show="cookieValue">
+        <hr>
+        <div>You have visited Testing Things! Proof: {{ cookieValue }}</div>
+        <div ng-click="cookieValueDelete()">Paranoid of cookies? Just delete it friendo!</div>
+        <hr>
+      </div>
       <div class="row">
         <div class="col-md-12">
           <img ng-src="{{ event.image }}" alt="{{ event.name }}">
@@ -107,6 +113,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-sanitize.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-cookies.min.js"></script>
   <script src="./js/app.js"></script>
   <script src="./js/services/valueFactory.js"></script>
   <script src="./js/services/eventDataFactory.js"></script>

@@ -4,7 +4,7 @@
 
 (function(){
 	
-	angular.module('eventsApp', ['ngRoute', 'ngSanitize', 'ui.bootstrap']);
+	angular.module('eventsApp', ['ngRoute', 'ngSanitize', 'ngCookies', 'ui.bootstrap']);
 	
 	
 	// $.get('http://localhost:1338/getevents')

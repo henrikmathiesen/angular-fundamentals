@@ -29,7 +29,7 @@
 
 (function(){
 	
-	var eventController = function($scope, $sce, $filter, $anchorScroll, $location, valueFactory, eventDataFactory, testFactory){
+	var eventController = function($scope, $sce, $filter, $anchorScroll, $location, $cookies, valueFactory, eventDataFactory, testFactory){
 		$scope.event = {};
 		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");
 
@@ -68,6 +68,21 @@
 		console.log($filter('truncateFilter')(testStringToFilter, 50));
 		// truncateFilter(testStringToFilter, 50) , can do it like that, if included that as a service, but I think cant name it xxFilter, use $filter instead
 		
+		
+		// Using an Angular filter from code
+		var names = ['Bertil', 'Adam', 'David', 'Ceasar'];
+		var orderedNames = $filter('orderBy')(names, '-');
+		console.log(orderedNames);
+		
+		
+		// Looking for a cookie, indicating user has visited Testing Things Page
+		$scope.cookieValue = $cookies.get('name') || '';
+		
+		$scope.cookieValueDelete = function(){
+			$cookies.remove('name');
+			$scope.cookieValue = '';
+		};
+		
 		// DEBUG
 		$scope.listAllEvents = function(){
 			eventDataFactory.getEvents()
@@ -75,16 +90,9 @@
 								console.log(response.data);
 							});
 		};
-		
-		
-		// Using an Angular filter from code
-		var names = ['Bertil', 'Adam', 'David', 'Ceasar'];
-		var orderedNames = $filter('orderBy')(names, '-');
-		console.log(orderedNames);
-		
 	};
 	
 	angular.module('eventsApp').controller('eventController', eventController);
-	eventController.$inject = ['$scope', '$sce', '$filter', '$anchorScroll', '$location', 'valueFactory', 'eventDataFactory', 'testFactory'];
+	eventController.$inject = ['$scope', '$sce', '$filter', '$anchorScroll', '$location', '$cookies', 'valueFactory', 'eventDataFactory', 'testFactory'];
 	
 })();

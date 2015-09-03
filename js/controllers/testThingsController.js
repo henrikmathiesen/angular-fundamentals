@@ -41,7 +41,7 @@
 	// ==============================================================================
 	
 	
-	var testThingsController = function($scope, $cacheFactory, $compile, $parse, $locale, $timeout, valueFactory){
+	var testThingsController = function($scope, $cacheFactory, $compile, $parse, $locale, $timeout, $cookies, valueFactory){
 		valueFactory.setTitle('Test Things');
 		
 		
@@ -130,11 +130,17 @@
 		//throw { message: 'My Error Message' };
 		//$exceptionHandler
 		// https://docs.angularjs.org/api/ng/service/$exceptionHandler
+		
+		
+		// Testing Angulars $cookies (needs js reference and module reference[])
+		// Can set expire dates as an option in an object parameter
+		// https://docs.angularjs.org/api/ngCookies/provider/$cookiesProvider#defaults
+		$cookies.put('name', 'Henrik');
 	};
 	
 	
 	
 	angular.module('eventsApp').controller('testThingsController', testThingsController);
-	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', '$parse', '$locale', '$timeout', 'valueFactory'];
+	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', '$parse', '$locale', '$timeout', '$cookies', 'valueFactory'];
 	
 })();
