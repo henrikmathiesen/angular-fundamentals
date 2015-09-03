@@ -8,9 +8,10 @@ Often used
 
 - $window
 - $document
-- $rootElement
+- $rootElement // The DOM element we put 'ng-app' on
 
 - $http
+- $q
 
 - $location
 - $route
