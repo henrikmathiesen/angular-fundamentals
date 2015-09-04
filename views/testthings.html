@@ -1,0 +1,72 @@
+<div ng-controller="testThingsController">
+  <div>
+    <hr>
+    <h2>Testing Angulars $cacheFactory</h2>
+    <p class="text-info">Cache is in this example limited to 3 in capacity, then First in First out is applied</p>
+    <div><span>Key:</span>
+      <input type="text" ng-model="cacheKey">
+    </div>
+    <div><span>Value:</span>
+      <input type="text" ng-model="cacheValue">
+    </div>
+    <br>
+    <div>
+      <button class="btn btn-success" ng-click="addToCache(cacheKey, cacheValue);">Add to Cache</button>
+    </div>
+    <br>
+    <br>
+    <div><span>Read key:</span>
+      <input type="text" ng-model="cacheKeyToRead">
+    </div>
+    <div><span>Value is:</span> {{ readFromCache(cacheKeyToRead); }}</div>
+    <h3>Cache Stats</h3>
+    <div>{{ getCacheStats(); }}</div>
+    <hr>
+  </div>
+  <div>
+    <hr>
+    <h2>Testing Array Filter</h2>
+    <h3>First the Angular Way</h2>
+        <div>Filter by: <input type="text" ng-model="namesFilter" /></div>
+        <ul>
+          <li ng-repeat="name in names | filter: namesFilter">{{ name }}</li>
+        </ul>
+        <h3>Now with jQuery</h3>
+    <div>Filter by:
+      <input data-names-filter type="text" />
+    </div>
+    <ul data-names></ul>
+    <hr>
+  </div>
+  <div>
+    <hr>
+    <h2>Testing Angulars $compile</h2>
+    <div class="bg-danger" data-not-compiled></div>
+    <br>
+    <div class="bg-success" data-compiled></div>
+    <hr>
+  </div>
+  <div>
+    <hr>
+    <h2>Testing Angular $locale</h2>
+    <div><span>Date without filter: </span><span>{{ myDate }}</span></div>
+    <div><span>Date with filter: </span><span>{{ myDate | date }}</span></div>
+    <div><span>Date with semi custom filter: </span><span>{{ myDate | date: 'fullDate' }}</span></div>
+    <div><span>Date with custom filter from $locale: </span><span>{{ myDate | date: myDateFormat }}</span></div>
+    <hr>
+  </div>
+  <div>
+    <hr>
+    <h2>Testing Currenzy</h2>
+    <div>{{ ammount | currency }}</div>
+    <hr>
+  </div>
+  <div>
+    <hr>
+    <h2>Testing $timeout</h2>
+    <div><span ng-click="cancelvanillaTimeout()">CancelVanillaTimeOut </span> | <span ng-click="cancelangTimeout()">CancelAngTimeout</span></div>
+    <div>{{ vanillaTimeoutName }}</div>
+    <div>{{ angTimeoutName }}</div>
+    <hr>
+  </div>
+</div>
