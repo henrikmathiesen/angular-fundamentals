@@ -3,3 +3,9 @@
 		<li ng-repeat="event in events"><a ng-href="#/event/{{event.id}}">{{ event.name }}</a></li>
 	</ul>
 </div>
+<div>
+	<h2>Fake Stuff to Remove</h2>
+	<ul>
+		<li ng-repeat="fake in fakes">{{ fake }} <span ng-click="removeFake(fake)">REMOVE IT</span></li>
+	</ul>
+</div>

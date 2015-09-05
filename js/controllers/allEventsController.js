@@ -7,6 +7,13 @@
 						}, function(){
 							console.log("Error getting all events");
 						});
+						
+						
+		$scope.fakes = ['Lorem', 'Ipsum', 'Dolores'];
+		$scope.removeFake = function(fake){
+			var indexToRemove = $scope.fakes.indexOf(fake);
+			$scope.fakes.splice(indexToRemove, 1);
+		};
 	};
 	
 	
