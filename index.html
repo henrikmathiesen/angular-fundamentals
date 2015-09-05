@@ -19,6 +19,7 @@
 			<div class="col-md-12">
 				<ul class="nav nav-pills nav-justified">
 					<li role="presentation" ng-class="{'active': (location.path().indexOf('/event/') != -1) }"><a href="#/event">Event</a></li>
+					<li role="presentation" ng-class="{'active': (location.path() == '/allevents') }"><a href="#/event">All Events</a></li>
 					<li role="presentation" ng-class="{'active': (location.path() == '/newevent') }"><a href="#/newevent">Create Event</a></li>
 					<li role="presentation" ng-class="{'active': (location.path() == '/editprofile') }"><a href="#/editprofile">Your Profile</a></li>
 					<li role="presentation" ng-class="{'active': (location.path() == '/testthings') }"><a href="#/testthings">Test Things</a></li>
@@ -45,6 +46,7 @@
 	<script src="./js/filters/truncateFilter.js"></script>
 	<script src="./js/filters/durationFilter.js"></script>
 	<script src="./js/controllers/layoutController.js"></script>
+	<script src="./js/controllers/allEventsController.js"></script>
 	<script src="./js/controllers/eventController.js"></script>
 	<script src="./js/controllers/editEventController.js"></script>
 	<script src="./js/controllers/editProfileController.js"></script>

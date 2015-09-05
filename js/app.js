@@ -18,6 +18,10 @@
 	var config = function ($routeProvider) {
 
 		$routeProvider
+			.when('/allevents', {
+				templateUrl: './views/allevents.html',
+				controller: 'allEventsController'
+			})
 			.when('/event/:id', {
 				templateUrl: './views/event.html',
 				controller: 'eventController'
@@ -34,7 +38,7 @@
 				templateUrl: './views/testthings.html',
 				controller: 'testThingsController'
 			})
-			.otherwise('/event/0');
+			.otherwise('/allevents');
 
 	};
 
