@@ -41,25 +41,27 @@
 	// ==============================================================================
 	
 	
-	var testThingsController = function($scope, $cacheFactory, $compile, $parse, $locale, $timeout, $cookies, valueFactory){
+	var testThingsController = function($scope, $cacheFactory, $compile, $parse, $locale, $timeout, $cookies, $location, $anchorScroll, valueFactory){
+		
 		valueFactory.setTitle('Test Things');
 		
 		
 		// Testing Angulars $cacheFactory
+		// This cache factory gets recreated with same id everytime this view loads, and that creates an error
 		
-		var myCache = $cacheFactory('myCache', { capacity:3 });
-		
-		$scope.addToCache = function(key, value){
-			myCache.put(key, value);
-		};
-		
-		$scope.readFromCache = function(key){
-			return myCache.get(key);
-		};
-		
-		$scope.getCacheStats = function(){
-			return myCache.info();
-		};
+		// var myCache = $cacheFactory('myCache', { capacity:3 });
+		// 
+		// $scope.addToCache = function(key, value){
+		// 	myCache.put(key, value);
+		// };
+		// 
+		// $scope.readFromCache = function(key){
+		// 	return myCache.get(key);
+		// };
+		// 
+		// $scope.getCacheStats = function(){
+		// 	return myCache.info();
+		// };
 		
 		
 		// # Testing Array Filter
@@ -136,11 +138,17 @@
 		// Can set expire dates as an option in an object parameter
 		// https://docs.angularjs.org/api/ngCookies/provider/$cookiesProvider#defaults
 		$cookies.put('name', 'Henrik');
+		
+		
+		$scope.scrollToMyLocationId = function() {
+			$location.hash('myLocationId');
+			$anchorScroll();
+		};
 	};
 	
 	
 	
 	angular.module('eventsApp').controller('testThingsController', testThingsController);
-	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', '$parse', '$locale', '$timeout', '$cookies', 'valueFactory'];
+	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', '$parse', '$locale', '$timeout', '$cookies', '$location', '$anchorScroll', 'valueFactory'];
 	
 })();

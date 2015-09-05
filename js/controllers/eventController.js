@@ -29,11 +29,16 @@
 
 (function(){
 	
-	var eventController = function($scope, $sce, $filter, $anchorScroll, $location, $cookies, valueFactory, eventDataFactory, testFactory){
+	var eventController = function($scope, $sce, $filter, $anchorScroll, $location, $cookies, $routeParams, valueFactory, eventDataFactory, testFactory){
+		var eventToGet = $routeParams.id;
+		
+		valueFactory.setTitle('Event');
+		
 		$scope.event = {};
 		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");
-
-		eventDataFactory.getEvent(0)
+		
+		
+		eventDataFactory.getEvent(eventToGet)
 						.then(function(response){
 							$scope.event = response.data;
 							console.log('data');
@@ -93,6 +98,6 @@
 	};
 	
 	angular.module('eventsApp').controller('eventController', eventController);
-	eventController.$inject = ['$scope', '$sce', '$filter', '$anchorScroll', '$location', '$cookies', 'valueFactory', 'eventDataFactory', 'testFactory'];
+	eventController.$inject = ['$scope', '$sce', '$filter', '$anchorScroll', '$location', '$cookies', '$routeParams', 'valueFactory', 'eventDataFactory', 'testFactory'];
 	
 })();

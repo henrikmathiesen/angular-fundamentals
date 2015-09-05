@@ -1,4 +1,5 @@
-<div ng-controller="testThingsController">
+<div>
+  <div ng-click="scrollToMyLocationId()">Click to scroll to id</div>
   <div>
     <hr>
     <h2>Testing Angulars $cacheFactory</h2>
@@ -67,6 +68,12 @@
     <div><span ng-click="cancelvanillaTimeout()">CancelVanillaTimeOut </span> | <span ng-click="cancelangTimeout()">CancelAngTimeout</span></div>
     <div>{{ vanillaTimeoutName }}</div>
     <div>{{ angTimeoutName }}</div>
+    <hr>
+  </div>
+  <div>
+    <hr>
+    <h2>Testing $location</h2>
+    <div id="myLocationId">Scroll here</div>
     <hr>
   </div>
 </div>
