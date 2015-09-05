@@ -29,7 +29,7 @@
 
 (function(){
 	
-	var eventController = function($scope, $sce, $filter, $anchorScroll, $location, $cookies, $routeParams, valueFactory, eventDataFactory, testFactory){
+	var eventController = function($scope, $sce, $filter, $anchorScroll, $location, $cookies, $routeParams, valueFactory, eventDataFactory){
 		var eventToGet = $routeParams.id;
 		
 		valueFactory.setTitle('Event');
@@ -98,6 +98,6 @@
 	};
 	
 	angular.module('eventsApp').controller('eventController', eventController);
-	eventController.$inject = ['$scope', '$sce', '$filter', '$anchorScroll', '$location', '$cookies', '$routeParams', 'valueFactory', 'eventDataFactory', 'testFactory'];
+	eventController.$inject = ['$scope', '$sce', '$filter', '$anchorScroll', '$location', '$cookies', '$routeParams', 'valueFactory', 'eventDataFactory'];
 	
 })();

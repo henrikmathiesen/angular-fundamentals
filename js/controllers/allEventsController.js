@@ -1,6 +1,9 @@
 (function(){
 	
-	var allEventsController = function($scope, eventDataFactory){
+	var allEventsController = function($scope, valueFactory, eventDataFactory){
+		
+		valueFactory.setTitle('All Events');
+		
 		eventDataFactory.getEvents()
 						.then(function(response){
 							$scope.events = response.data;
@@ -14,10 +17,11 @@
 			var indexToRemove = $scope.fakes.indexOf(fake);
 			$scope.fakes.splice(indexToRemove, 1);
 		};
+		
 	};
 	
 	
 	angular.module('eventsApp').controller('allEventsController', allEventsController);
-	allEventsController.$inject = ['$scope', 'eventDataFactory'];
+	allEventsController.$inject = ['$scope', 'valueFactory', 'eventDataFactory'];
 	
 })();
