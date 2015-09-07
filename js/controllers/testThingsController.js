@@ -41,10 +41,15 @@
 	// ==============================================================================
 	
 	
-	var testThingsController = function($scope, $cacheFactory, $compile, $parse, $locale, $timeout, $cookies, $location, $anchorScroll, valueFactory){
+	var testThingsController = function($scope, $cacheFactory, $compile, $parse, $locale, $timeout, $cookies, $location, $anchorScroll, $route, valueFactory){
+		console.log("testThingsController loading up");
+		
 		
 		valueFactory.setTitle('Test Things');
 		
+		console.log($route.current.foo);
+		console.log($route.current.params.name);
+		console.log($route.current.params.test);
 		
 		// Testing Angulars $cacheFactory
 		// This cache factory gets recreated with same id everytime this view loads, and that creates an error
@@ -144,11 +149,18 @@
 			$location.hash('myLocationId');
 			$anchorScroll();
 		};
+		
+		
+		// Testing Reloading View
+		// This reloads the view and controller, but does not trigger server reload
+		$scope.reloadView = function(){
+			$route.reload();
+		};
 	};
 	
 	
 	
 	angular.module('eventsApp').controller('testThingsController', testThingsController);
-	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', '$parse', '$locale', '$timeout', '$cookies', '$location', '$anchorScroll', 'valueFactory'];
+	testThingsController.$inject = ['$scope', '$cacheFactory', '$compile', '$parse', '$locale', '$timeout', '$cookies', '$location', '$anchorScroll', '$route', 'valueFactory'];
 	
 })();

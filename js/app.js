@@ -22,7 +22,7 @@
 				templateUrl: './views/allevents.html',
 				controller: 'allEventsController'
 			})
-			.when('/event/:id', {
+			.when('/event/:id', {										// Accessible in eventController by $routeParams.id
 				templateUrl: './views/event.html',
 				controller: 'eventController'
 			})
@@ -34,10 +34,11 @@
 				templateUrl: './views/editProfile.html',
 				controller: 'editProfileController'
 			})
-			.when('/testthings', {
-				templateUrl: './views/testthings.html',
-				controller: 'testThingsController'
-			})
+			.when('/testthings/', {
+				foo: 'bar',												// Accessible in testThingsController by $route.current.foo
+				templateUrl: './views/testthings.html',					// Query string like ?name=henrik, is accessible in testThingsController with $route.current.params.name
+				controller: 'testThingsController'						// $route.current.params.name will ALSO get access to route params (/page/:name), like 'kalle' in '/page/kalle'
+			})															// $route.current.pathParams.name will ONLY get access to route params (and not query string)
 			.otherwise('/allevents');
 
 	};
