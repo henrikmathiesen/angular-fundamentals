@@ -79,10 +79,10 @@
 		$scope.cHello = function(){ console.log("Hello"); };
 		
 		// Here we do not compile the markup, so bindings wont work
-		var cmarkup = '<span ng-click="cHello()"> {{ cname }} </span>';
+		var cmarkup = '<span style="color:red;" ng-click="cHello()"> {{ cname }} </span>';
 		angular.element('div[data-not-compiled]').html(cmarkup);
 		
-		// If we compile the markup, the bindings will work
+		// If we compile the markup, the bindings will work, style is also applied
 		cmarkup = $compile(cmarkup)($scope);
 		angular.element('div[data-compiled]').html(cmarkup);
 		

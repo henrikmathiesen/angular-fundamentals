@@ -35,7 +35,7 @@
 		valueFactory.setTitle('Event');
 		
 		$scope.event = {};
-		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");
+		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");	// To get bindings and directive to work, we need $compile
 		
 		
 		eventDataFactory.getEvent(eventToGet)
