@@ -5,6 +5,10 @@
 	var layoutController = function($scope, $location, valueFactory){
 		$scope.valueFactory = valueFactory;
 		$scope.location = $location;
+		
+		$scope.navigateToInlineTemplate = function(){
+			$location.url('/inlinetemplate');
+		};
 	};
 	
 	angular.module('eventsApp').controller('layoutController', layoutController);

@@ -26,6 +26,10 @@
 				</ul>
 				<h1 class="text-center">{{ valueFactory.getTitle() }}</h1>
 			</div>
+			<!-- When using href we need '#/xxx' , but when using $location.url (layoutController) we only use '/xxx' -->
+			<div ng-click="navigateToInlineTemplate()">Navigate to inline template using $location.url</div>
+			<div><a href="#/inlinetemplate">Navigate to inline template using ahref</a></div>
+			<br><br><br>
 		</div>
 		<div ng-view=""></div>
 	</div>
