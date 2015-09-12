@@ -23,19 +23,36 @@
 	- jQuery Ajax API does not use last .then() as Always/Finally (logic does not go there on error)
 	- jQuery Ajax API needs an .always()
 	- Angular on the other hand uses last .then() as Always/Finally
+	
+	If we chose to not use the then() API here are the other states that matches
+	-- Angular
+		- success()
+		- error()
+		- finally()
+	-- jQuery
+		- done()
+		- fail()
+		- always()
 */
 
 
 
 (function(){
 	
-	var eventController = function($scope, $sce, $filter, $anchorScroll, $location, $cookies, $routeParams, valueFactory, eventDataFactory){
+	var eventController = function($scope, $sce, $filter, $anchorScroll, $location, $cookies, $routeParams, $compile, valueFactory, eventDataFactory){
 		var eventToGet = $routeParams.id;
 		
 		valueFactory.setTitle('Event');
 		
 		$scope.event = {};
-		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");	// To get bindings and directive to work, we need $compile
+		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");						// To get bindings and directive to work, we need $compile
+		
+		var cSnippet = $compile('<span style="color:gold;" ng-click="sayHiThere()">Click me</span>')($scope);	// We cant bind to a compiled string
+		angular.element('h5[data-snippet="cSnippet"]').html(cSnippet);											// So we use .html()
+		
+		$scope.sayHiThere = function(){
+			console.log("Hi there!");
+		};
 		
 		$scope.ajaxOk = false;
 		$scope.ajaxDone = false;
@@ -103,6 +120,6 @@
 	};
 	
 	angular.module('eventsApp').controller('eventController', eventController);
-	eventController.$inject = ['$scope', '$sce', '$filter', '$anchorScroll', '$location', '$cookies', '$routeParams', 'valueFactory', 'eventDataFactory'];
+	eventController.$inject = ['$scope', '$sce', '$filter', '$anchorScroll', '$location', '$cookies', '$routeParams', '$compile', 'valueFactory', 'eventDataFactory'];
 	
 })();

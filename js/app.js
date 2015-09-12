@@ -55,6 +55,10 @@
 				templateUrl: './views/testthings.html',							// Query string like ?name=henrik, is accessible in testThingsController with $route.current.params.name
 				controller: 'testThingsController'								// $route.current.params.name will ALSO get access to route params (/page/:name), like 'kalle' in '/page/kalle'
 			})																	// $route.current.pathParams.name will ONLY get access to route params (and not query string)
+			.when('/testdirectives', {
+				templateUrl: './views/testDirectives.html',
+				controller: 'testDirectivesController'
+			})
 			.when('/inlinetemplate', {
 				template: '<h2 style="color:red">Well hi there!</h2>'
 			})
