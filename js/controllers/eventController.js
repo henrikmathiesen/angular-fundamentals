@@ -37,15 +37,20 @@
 		$scope.event = {};
 		$scope.snippet = $sce.trustAsHtml("<span style='color:green;'>See info</span>");	// To get bindings and directive to work, we need $compile
 		
+		$scope.ajaxOk = false;
+		$scope.ajaxDone = false;
 		
 		eventDataFactory.getEvent(eventToGet)
 						.then(function(response){
+							$scope.ajaxOk = true;
 							$scope.event = response.data;
 							console.log('data');
 						}, function(){
+							$scope.event = false;
 							console.log("ERROR GETTING EVENT");
 						})
 						 .finally(function(){
+							$scope.ajaxDone = true;
 							console.log("ALWAYS");
 						});
 		

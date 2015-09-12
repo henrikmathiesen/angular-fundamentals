@@ -1,4 +1,5 @@
-<div>
+<div ng-show="!ajaxOk && ajaxDone" class="text-danger">Error Getting Event</div>
+<div ng-show="ajaxOk">
   <div>
     <hr>
     <span ng-click="listAllEvents()">Log all events (debug)</span>
@@ -65,8 +66,8 @@
                 Level: {{ session.level }}
               </p>
               <p>{{ session.abstract | truncateFilter:50 }}</p>
-            </div>
-            <div class="col-md-3 well af-voting-widget">
+        </div>
+        <div class="col-md-3 well af-voting-widget">
               <h4 ng-click="upVoteSession(session);"><span class="glyphicon glyphicon-thumbs-up text-success"></span> <span>Upvote</span></h4>
               <h4 ng-class="{'af-text-opac': (session.upVoteCount < 1) }" ng-click="downVoteSession(session);"><span class="glyphicon glyphicon-thumbs-down text-danger"></span> <span>Downvote</span></h4>
               <h4 class="text-center">{{ session.upVoteCount }}</h4>
