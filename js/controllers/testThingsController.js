@@ -51,6 +51,19 @@
 		console.log($route.current.params.name);
 		console.log($route.current.params.test);
 		
+		// Testing Location Service, writing out all the getters
+		console.log('absUrl: ' + $location.absUrl());
+		console.log('protocol: ' + $location.protocol());
+		console.log('port: ' + $location.port());
+		console.log('host: ' + $location.host());
+		console.log('path: ' + $location.path());		// These are getters and setters ----------
+		console.log('--- search ---');
+		console.log($location.search());
+		console.log('----------------');
+		console.log('hash: ' + $location.hash());
+		console.log('url: ' + $location.url());
+		
+		
 		// Testing Angulars $cacheFactory
 		// This cache factory gets recreated with same id everytime this view loads, and that creates an error
 		

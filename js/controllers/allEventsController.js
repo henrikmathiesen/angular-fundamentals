@@ -1,16 +1,11 @@
 (function(){
 	
-	var allEventsController = function($scope, valueFactory, eventDataFactory){
+	var allEventsController = function($scope, $route, valueFactory, events){
 		
 		valueFactory.setTitle('All Events');
 		
-		eventDataFactory.getEvents()
-						.then(function(response){
-							$scope.events = response.data;
-						}, function(){
-							console.log("Error getting all events");
-						});
-						
+		$scope.events = events;
+		
 						
 		$scope.fakes = ['Lorem', 'Ipsum', 'Dolores'];
 		$scope.removeFake = function(fake){
@@ -22,6 +17,6 @@
 	
 	
 	angular.module('eventsApp').controller('allEventsController', allEventsController);
-	allEventsController.$inject = ['$scope', 'valueFactory', 'eventDataFactory'];
+	allEventsController.$inject = ['$scope', '$route', 'valueFactory', 'events'];
 	
 })();

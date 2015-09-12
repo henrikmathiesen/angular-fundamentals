@@ -1,3 +1,11 @@
+<p>
+	Maybe the server takes a little while to give us all the events (we have a setTimeout of 2 second in the Node server).
+	Then maybe we dont want to show anything until the data comes back. We can do that in the route configs in app.js.
+</p>
+
+<div style="color:red">First event is: {{ events[0].name }}</div>
+<br><br>
+
 <div>
 	<ul>
 		<li ng-repeat="event in events"><a ng-href="#/event/{{event.id}}">{{ event.name }}</a></li>

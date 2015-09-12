@@ -20,9 +20,25 @@
 		$routeProvider
 			.when('/allevents', {
 				templateUrl: './views/allevents.html',
-				controller: 'allEventsController'
+				controller: 'allEventsController',
+				resolve: {															// This view will not be loaded until Ajax Call is done
+					testResolve: ['eventDataFactory', function(eventDataFactory){	// In allEventsController we can get to the data by injecting 'testResolve' or use '$route.current.locals.testResolve'
+						return eventDataFactory.getEvents();						// There is a data property on it. $scope.events = testResolve.data;
+					}],																// If there is an error, the controller will never be instantiated and the view never loaded
+					events: ['eventDataFactory', function(eventDataFactory){		// LETS FIX THAT, cant fix it, sorry
+						return eventDataFactory.getEvents()
+												.then(function(response){
+													return response.data;
+												}, function(response){
+													return response.status;
+												})
+												.finally(function(){
+													console.log("config route resolve finally");
+												});
+					}] 
+				}
 			})
-			.when('/event/:id', {										// Accessible in eventController by $routeParams.id
+			.when('/event/:id', {												// Accessible in eventController by $routeParams.id
 				templateUrl: './views/event.html',
 				controller: 'eventController'
 			})
@@ -35,10 +51,10 @@
 				controller: 'editProfileController'
 			})
 			.when('/testthings/', {
-				foo: 'bar',												// Accessible in testThingsController by $route.current.foo
-				templateUrl: './views/testthings.html',					// Query string like ?name=henrik, is accessible in testThingsController with $route.current.params.name
-				controller: 'testThingsController'						// $route.current.params.name will ALSO get access to route params (/page/:name), like 'kalle' in '/page/kalle'
-			})															// $route.current.pathParams.name will ONLY get access to route params (and not query string)
+				foo: 'bar',														// Accessible in testThingsController by $route.current.foo
+				templateUrl: './views/testthings.html',							// Query string like ?name=henrik, is accessible in testThingsController with $route.current.params.name
+				controller: 'testThingsController'								// $route.current.params.name will ALSO get access to route params (/page/:name), like 'kalle' in '/page/kalle'
+			})																	// $route.current.pathParams.name will ONLY get access to route params (and not query string)
 			.when('/inlinetemplate', {
 				template: '<h2 style="color:red">Well hi there!</h2>'
 			})
