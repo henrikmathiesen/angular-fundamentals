@@ -17,3 +17,5 @@
 		<li ng-repeat="fake in fakes">{{ fake }} <span ng-click="removeFake(fake)">REMOVE IT</span></li>
 	</ul>
 </div>
+
+<div ng-include="'views/_allEventsPartial.html'"></div> <!-- With routing on, we have to specify the path to it -->
