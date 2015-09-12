@@ -18,4 +18,12 @@
 	</ul>
 </div>
 
-<div ng-include="'views/_allEventsPartial.html'"></div> <!-- With routing on, we have to specify the path to it -->
+<!-- 
+	ng-include
+	- With routing on, we have to specify the path to it
+	- The included partial will have access to the scope of the controller running this view
+	- This also creates a coupeling 
+	-- if the partial is using data from the $scope, it has to be included in this view
+	-- With directives it is more flexible, we can send in data instead, with isolated scope
+-->
+<div ng-include="'views/_allEventsPartial.html'"></div>
