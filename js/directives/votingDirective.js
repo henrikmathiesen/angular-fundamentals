@@ -1,7 +1,7 @@
 (function(){
 	
 	// This is a losly coupled directive, it focuses on voting up/down and display votes, with a template
-	// The directives lets the consumer send in parameters, from markup, that is used in the consumers scope
+	// The directives lets the consumer parent controller send in parameters, from markup, that is used in the consumers scope
 	// We have one use for this directive, so far, and that is to vote on event sessions
 	// The directive, thanks to its lose coupeling, can be used to vote on other things as well
 	//
