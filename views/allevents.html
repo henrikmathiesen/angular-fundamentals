@@ -3,7 +3,7 @@
 	Then maybe we dont want to show anything until the data comes back. We can do that in the route configs in app.js.
 </p>
 
-<div style="color:red">First event is: {{ events[0].name }}</div>
+<div style="color:green">First event is: {{ events[0].name }}</div>
 <br><br>
 
 <div>
@@ -26,4 +26,4 @@
 	-- if the partial is using data from the $scope, it has to be included in this view
 	-- With directives it is more flexible, we can send in data instead, with isolated scope
 -->
-<div ng-include="'views/_allEventsPartial.html'"></div>
+<div ng-include="'/views/_allEventsPartial.html'"></div>

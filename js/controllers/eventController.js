@@ -72,10 +72,12 @@
 						});
 		
 		$scope.upVoteSession = function(session){
+			console.log('upVoteSession');
 			session.upVoteCount += 1;
 		};
 		
 		$scope.downVoteSession = function(session){
+			console.log('downVoteSession');
 			session.upVoteCount -= 1;
 			if(session.upVoteCount < 0) {
 				session.upVoteCount = 0;

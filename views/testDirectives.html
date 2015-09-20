@@ -1,4 +1,17 @@
 <div>
+	<h2>The scopes are shared</h2>
+	<p>
+		Since we have a shared scope (between two directives and the controller), changing on a property, like sampleData, reflects everywhere.
+		If we dont want that, we can use an isolated scope instead. If we do that (an empty object in testDirective.js:s return object), then
+	</p>
+	<ul>
+		<li>scope.name is seperated (name property exists in on both controller and directive scopes)</li>
+		<li>scope.directiveProp is only accessible on the directives scope</li>
+		<li>scope.sampleData is only accessible on the directives scope</li>
+		<li>scope.onKeyup can only be run from the directive</li>
+		<li>The two directives on this page has there on scope</li>
+	</ul>
+	<testing-some-fancy></testing-some-fancy>
 	<testing-some-fancy></testing-some-fancy>
 	<hr>
 	<h2>Hej!</h2>

@@ -7,6 +7,12 @@
 		$scope.name = 'Henrik';
 		$scope.lastName = 'Mathiesen';
 		
+		//console.log($scope);
+		// sampleData property is created when it is truthy
+		$scope.onKeyUp = function(){
+			//console.log($scope);
+		};
+		
 	};
 	
 	angular.module('eventsApp').controller('testDirectivesController', testDirectivesController);
