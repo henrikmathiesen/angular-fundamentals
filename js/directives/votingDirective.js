@@ -27,7 +27,7 @@
 
 
 /* 
-	@ Attribute string binding
+	@ Attribute string binding , need to bind up-vote-count="{{  }}"
 	= Two-way model binding
 	& Callback method binding
 */
