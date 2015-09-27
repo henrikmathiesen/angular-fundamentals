@@ -20,6 +20,10 @@
 			link:function(scope, element, attributes){
 				console.log(scope.upVoteCount);						// The evaluated value on this isolated scope
 				console.log(attributes.upVoteCount);				// The DOM string 'session.upVoteCount'
+				console.log(element);								// jQ (if jQuery is included) / jQLite wrapped element
+				element.on('click', function(){
+					console.log("CLICK ON VOTING WIDGET");
+				});
 			},
 			controller: ['$scope', function($scope){
 				console.log($scope.upVoteCount);					// The evaluated value on this isolated scope
