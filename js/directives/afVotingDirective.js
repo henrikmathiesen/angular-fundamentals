@@ -1,3 +1,5 @@
+/// <reference path="../../typings/angularjs/angular.d.ts"/>
+
 (function(){
 	
 	// This is a losly coupled directive, it focuses on voting up/down and display votes, with a template
@@ -16,7 +18,7 @@
 			scope: {
 				upVote: '&',
 				downVote: '&',
-				upVoteCount: '='
+				upVoteCount: '@'
 			},
 			templateUrl: '/views/directives/afVotingDirective.html',
 			link:function(scope, element, attributes){
@@ -26,9 +28,23 @@
 				element.on('click', function(){
 					console.log("CLICK ON VOTING WIDGET");
 				});
+				
+				// $observe() is used to observe a DOM element that is changed by an angular binding
+				// It has to be an attribute binding, '@', in the isolated scope
+				attributes.$observe('upVoteCount', function(newValue, oldValue){
+					if((newValue !== oldValue) && (newValue != 0)) {
+						console.log("OBSERVED UPVOTE COUNT CHANGED");
+					}
+				});
 			},
 			controller: ['$scope', function($scope){
 				console.log($scope.upVoteCount);					// The evaluated value on this isolated scope
+				
+				// $watch() is used to observe/watch a property on the scope, it is "more powerful than $observe"
+				$scope.$watch('upVoteCount', function(newValue, oldValue){
+					if((newValue !== oldValue) && (newValue != 0))
+					console.log("WATCHED UPVOTE COUNT CHANGED");
+				});
 			}]
 		}	
 	};
