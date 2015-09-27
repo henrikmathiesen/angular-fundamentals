@@ -18,11 +18,14 @@
 			
 			template: '<div><input type="text" ng-model="sampleData" ng-keyup="onKeyUp()" /> <span ng-bind="sampleData"></span></div>',
 			
-			
 			link: function(scope, element, attrs, controller){
 				scope.name = "Kalle";
 				scope.directiveProp = 'Yeah!';
 			}
+			
+			// controller: ['$scope',function($scope) {
+			// 	console.log($scope);
+			// }]
 		}
 	};
 	

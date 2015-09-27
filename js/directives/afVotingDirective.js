@@ -11,6 +11,14 @@
 	// So 'scope' in a linking function will belong to this directive only
 	
 	
+	/* 
+		@ Attribute string binding , need to bind up-vote-count="{{  }}"
+		= Two-way model binding
+		& Callback method binding
+	*/
+	
+	
+	
 	var afVotingDirective = function(){
 		return {
 			restrict: 'E',
@@ -39,15 +47,15 @@
 					}
 				});
 			},
-			controller: ['$scope', function($scope){
-				console.log($scope.upVoteCount);									// The evaluated value on this isolated scope
-				
-				// $watch() is used to observe/watch a property on the scope, it is "more powerful than $observe"
-				$scope.$watch('upVoteCount', function(newValue, oldValue){
-					if((newValue !== oldValue) && (newValue != 0))
-					console.log("WATCHED UPVOTE COUNT CHANGED");
-				});
-			}]
+			
+			// Only use controller in directive if scope is isolated, else messy
+			// Can use an inline function or, as here, point to a controller defined elsewhere
+			// I think I prefer them inline, to keep it short and consice
+			controller: 'afVotingDirectiveController'
+			
+			// Consumer of directive can also pass in a controller, 'ctrl' maps to an attribute on DOM element (ctrl='afVotingDirectiveController')
+			// controller: '@'
+			// name: 'ctrl'
 		}	
 	};
 	
@@ -56,9 +64,20 @@
 })();
 
 
-
-/* 
-	@ Attribute string binding , need to bind up-vote-count="{{  }}"
-	= Two-way model binding
-	& Callback method binding
-*/
+(function(){
+	
+	var afVotingDirectiveController = function($scope){
+		
+		// $watch() is used to observe/watch a property on the $scope, it is "more powerful than $observe"
+		$scope.$watch('upVoteCount', function (newValue, oldValue) {
+			if ((newValue !== oldValue) && (newValue != 0))
+				console.log("WATCHED UPVOTE COUNT CHANGED");
+		});
+		
+	};
+	
+	
+	angular.module('eventsApp').controller('afVotingDirectiveController', afVotingDirectiveController);
+	afVotingDirectiveController.$inject = ['$scope'];
+	
+})();
