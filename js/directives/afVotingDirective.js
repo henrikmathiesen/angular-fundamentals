@@ -9,18 +9,25 @@
 	// So 'scope' in a linking function will belong to this directive only
 	
 	
-	var votingDirective = function(){
+	var afVotingDirective = function(){
 		return {
 			scope: {
 				upVote: '&',
 				downVote: '&',
 				upVoteCount: '='
 			},
-			templateUrl: '/views/directives/votingDirective.html'
+			templateUrl: '/views/directives/afVotingDirective.html',
+			link:function(scope, element, attributes){
+				console.log(scope.upVoteCount);						// The evaluated value on this isolated scope
+				console.log(attributes.upVoteCount);				// The DOM string 'session.upVoteCount'
+			},
+			controller: ['$scope', function($scope){
+				console.log($scope.upVoteCount);					// The evaluated value on this isolated scope
+			}]
 		}	
 	};
 	
-	angular.module('eventsApp').directive('afVoting', votingDirective);
+	angular.module('eventsApp').directive('afVoting', afVotingDirective);
 	
 })();
 
