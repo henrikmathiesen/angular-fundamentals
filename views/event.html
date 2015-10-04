@@ -60,13 +60,14 @@
           </h3>
       <div class="row" ng-repeat="session in event.sessions | orderBy:sortOrder | filter: filterByLevel" id="session{{ session.id }}">
         <div class="col-md-9 well">
-          <h4>{{ session.name }}</h3>
+          <af-collapsible title="{{ session.name }}">
               <h5>{{ session.creatorName }}</h5>
               <p>
                 Duration: {{ session.duration | durationFilter }} <br>
                 Level: {{ session.level }}
               </p>
               <p>{{ session.abstract | truncateFilter:50 }}</p>
+           </af-collapsible>
         </div>
         <div class="col-md-3 well af-voting-widget">
               <af-voting up-vote="upVoteSession(session)" 

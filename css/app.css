@@ -42,3 +42,7 @@
 .af-text-opac {
   opacity: 0.5;
 }
+
+.hide {
+  display: none!important;
+}
