@@ -20,7 +20,7 @@
 			//transclude: true,					// - If a directive on a nested element requires this directives controller, this property must be true
 			replace: true,						// - Also, since replace is true, we need sourunding divs in template <div>... <div ng-transclude></div></div>
 			template: '<button ng-click="sayHello()">Say Hello!</button>',
-			controller: function($scope){
+			controller: ['$scope', function($scope){
 				var greetings = ['Hello'];
 				
 				$scope.sayHello = function(){
@@ -30,7 +30,7 @@
 				this.addGreeting = function(greeting){
 					greetings.push(greeting);
 				};
-			}
+			}]
 		}
 	};
 	
