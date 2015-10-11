@@ -1,5 +1,16 @@
 /// <reference path="../../typings/angularjs/angular.d.ts"/>
 
+
+/*
+	Order of execution in a directive
+	- controller
+	- compile
+	- link
+	- (template), not a function really
+
+
+*/
+
 (function(){
 	
 	var afSharingCtrlDirective = function(){
