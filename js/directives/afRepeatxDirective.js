@@ -52,7 +52,7 @@
 				nrOfRepeats -= 1;
 				
 				for (var index = 0; index < nrOfRepeats; index++) {
-					var clone = element.clone().attr('af-repeatx', 0);
+					var clone = element.clone().removeAttr('af-repeatx');
 					clone = $compile(clone)(scope); 
 					
 					element.after(clone);
