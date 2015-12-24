@@ -16,7 +16,7 @@
 	
 	// config() runs before run() , also ngRoute needs script referense and module[]
 	var config = function ($routeProvider) {
-
+		// $locationProvider.hashPrefix('!'); use to invite Google to crawl (replaces #! with ?escaped_fragment, back end takes it from there)
 		$routeProvider
 			.when('/allevents', {
 				templateUrl: './views/allevents.html',
