@@ -88,12 +88,19 @@
         <div class="form-group">
             <label for="label-input-connection">The label</label>
             <select id="label-input-connection" class="form-control" 
-                    name="myFormInput" 
+                    name="myFormInputThatWillBeOnFormProp" 
                     ng-model="myCtrl.someProp"
                     ng-required="true"
                     ng-options="t.value as t.description for t in myCtrl.someCollection"></select>
-            <div ng-class="{'text-muted': myCtrl.myFormThatWillBeOnCtrlOrScope.myFormInput.$valid, 'text-danger': myCtrl.myFormThatWillBeOnCtrlOrScope.myFormInput.$invalid}">* Required</div>
+            <div ng-class="{'text-muted': myCtrl.myFormThatWillBeOnCtrlOrScope.myFormInputThatWillBeOnFormProp.$valid, 'text-danger': myCtrl.myFormThatWillBeOnCtrlOrScope.myFormInputThatWillBeOnFormProp.$invalid}">* Required</div>
         </div>
     </form>
+    
+    [
+        {
+            value:1,
+            description: 'Lorem ipsum'
+        }
+    ]
                     
 -->
