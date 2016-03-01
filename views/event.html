@@ -46,6 +46,7 @@
               <option value="name">Name</option>
               <option value="-upVoteCount">Votes</option>
             </select>
+            
             <!--
               This 'Show all' sets model to null, and is not compatible with filter
             <select ng-model="filterByLevel" 
@@ -53,6 +54,7 @@
               <option value="">-- Show All --</option>
             </select>
             -->
+            
             <select ng-model="filterByLevel.level"> <!-- Filter by the word in the 'level' property -->
               <option value="">-- Show all --</option>
               <option value="{{ session.level }}" ng-repeat="session in event.sessions">{{ session.level }}</option>
@@ -78,3 +80,20 @@
     </div>
   </div>
 </div>
+
+<!--
+    
+    Another select snippet
+    <form novalidate name="myCtrl.myFormThatWillBeOnCtrlOrScope">
+        <div class="form-group">
+            <label for="label-input-connection">The label</label>
+            <select id="label-input-connection" class="form-control" 
+                    name="myFormInput" 
+                    ng-model="myCtrl.someProp"
+                    ng-required="true"
+                    ng-options="t.value as t.description for t in myCtrl.someCollection"></select>
+            <div ng-class="{'text-muted': myCtrl.myFormThatWillBeOnCtrlOrScope.myFormInput.$valid, 'text-danger': myCtrl.myFormThatWillBeOnCtrlOrScope.myFormInput.$invalid}">* Required</div>
+        </div>
+    </form>
+                    
+-->
