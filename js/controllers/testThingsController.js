@@ -3,9 +3,9 @@
 	//jQuery (# Testing Array Filter)
 	// ==============================================================================
 	var names = [
-		'Karl',
-		'Henrik',
-		'Mathiesen'
+		'Adam',
+		'Bertil',
+		'Ceasar'
 	];
 	
 	var loopOutMarkUp = function(filteredName){
