@@ -1,0 +1,24 @@
+{
+  "name": "angular-fundamentals",
+  "version": "1.0.0",
+  "description": "We go into more depth in Angular. Based on the course: https://app.pluralsight.com/library/courses/angularjs-fundamentals/table-of-contents",
+  "main": "index.js",
+  "scripts": {
+    "postinstall":"tsd install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrikmathiesen/angular-fundamentals.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henrikmathiesen/angular-fundamentals/issues"
+  },
+  "homepage": "https://github.com/henrikmathiesen/angular-fundamentals#readme",
+  "devDependencies": {
+    "tsd": "^0.6.5"
+  }
+}
